@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<!-- <title>List</title> -->
+	<link rel="stylesheet" href="lib/tau/wearable/theme/default/tau.min.css">
+	<link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)" href="lib/tau/wearable/theme/default/tau.circle.min.css">
+	<!-- load theme file for your application -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<script>
+		(function() {
+			var SCROLL_STEP = 30;       // distance of moving scroll for each rotary event
+		
+			document.addEventListener("pagebeforeshow", function pageScrollHandler(e) {
+				var page = e.target;
+				elScroller = page.querySelector(".ui-scroller");
+			
+				// rotary event handler
+				rotaryEventHandler = function(e) {
+					if (elScroller) {
+						if (e.detail.direction === "CW") { // Right direction
+							elScroller.scrollTop += SCROLL_STEP;
+						} else if (e.detail.direction === "CCW") { // Left direction
+							elScroller.scrollTop -= SCROLL_STEP;
+						}
+					}
+				};
+			
+				// register rotary event.
+				document.addEventListener("rotarydetent", rotaryEventHandler, false);
+			
+				// unregister rotary event
+				page.addEventListener("pagebeforehide", function pageHideHanlder() {
+					page.removeEventListener("pagebeforehide", pageHideHanlder, false);
+					document.removeEventListener("rotarydetent", rotaryEventHandler, false);
+				}, false);
+			}, false);
+		}());
+	</script>
+	<script>
+		var flagSelection = window.localStorage.getItem("flagSelected");
+
+		function jumpToFlag() {
+
+			location.href="#";
+			location.href=flagSelection;
+			(function() {
+			var SCROLL_STEP = 35;       // distance of moving scroll for each rotary event
+		
+			document.addEventListener("pagebeforeshow", function pageScrollHandler(e) {
+				var page = e.target;
+				elScroller = page.querySelector(".ui-scroller");
+				elScroller.scrollTop -= SCROLL_STEP;
+				page.addEventListener("pagebeforehide", function pageHideHanlder() {
+					page.removeEventListener("pagebeforehide", pageHideHanlder, false);
+					document.removeEventListener("rotarydetent", rotaryEventHandler, false);
+				}, false);
+			}, false);
+		}());
+		}
+	</script>
+
+	<div class="ui-page" id="page2test">
+		<header class="ui-header">
+			<h2 class="ui-title">Select Flag</h2>
+		</header>
+		<div class="ui-content">
+			<a id="A"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_A.svg.png"> A-Alfa</a><br>
+				<a><b>International Call Signals</b><br>I have a diver down; keep well clear at slow speed</a>
+			<a id="B"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_B.svg.png"> B-Bravo</a><br>
+				<a><b>International Call Signals</b><br>I am taking in, discharging, or carrying dangerous cargo</a>
+			<a id="C"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_C.svg.png"> C-Charlie</a><br>
+				<a><b>International Call Signals</b><br>Affirmative</a><br>
+				<a><b>Regatta Rules</b><br>Course change</a>
+			<a id="D"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_D.svg.png"> D-Delta</a><br>
+                <a><b>International Call Signals</b><br>Keep clear of me; I am maneuvering with difficulty</a>
+			<a id="E"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_E.svg.png"> E-Echo</a><br>
+				<a><b>International Call Signals</b><br>I am altering my course to starboard</a>
+			<a id="F"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_F.svg.png"> F-Foxtrot</a><br>
+				<a><b>International Call Signals</b><br>I am disabled; communicate with me</a>
+			<a id="G"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_G.svg.png"> G-Golf</a><br>
+				<a><b>International Call Signals</b><br>I require a pilot <br>By fishing vessels near fishing grounds: I am hauling nets</a><br>
+			<a id="H"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_H.svg.png"> H-Hotel</a><br>
+				<a><b>International Call Signals</b><br>I have a pilot on board</a>
+			<a id="I"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_I.svg.png"> I-India</a><br>
+				<a><b>International Call Signals</b><br>I am altering my course to port</a><br>
+				<a><b>Regatta Rules</b><br>The Round-an-End Rule 30.1 will be in effect</a>
+				<a><b>Navy</b><br>Coming alongside</a>
+			<a id="J"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_J.svg.png"> J-Juliet</a><br>
+				<a><b>International Call Signals</b><br>I am on fire and have dangerous cargo on board: keep well clear of me</a>
+			<a id="K"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_K.svg.png"> K-Kilo</a><br>
+				<a><b>International Call Signals</b><br>I wish to communicate with you</a>
+			<a id="L"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_L.svg.png"> L-Lima</a><br>
+				<a><b>International Call Signals</b><br>In harbour: "The ship is quarantined."<br>At sea: "You should stop your vessel instantly."</a><br>
+				<a><b>Regatta Rules</b><br>When displayed afloat means: Come within hail or follow this boat.<br>When displayed ashore means: A notice to competitors has been posted.</a>
+			<a id="M"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_M.svg.png"> M-Mike</a><br>
+				<a><b>International Call Signals</b><br>My vessel is stopped and making no way through the water</a><br>
+				<a><b>Regatta Rules</b><br>Indicates a boat or an object displaying this signal replaces a missing mark.</a>
+			<a id="N"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_N.svg.png"> N-November</a><br>
+				<a><b>International Call Signals</b><br>Negative</a><br>
+				<a><b>Regatta Rules</b><br>Abandoment and re-sail</a>
+			<a id="O"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_O.svg.png"> O-Oscar</a><br>
+				<a><b>International Call Signals</b><br>Man overboard</a>
+			<a id="P"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_P.svg.png"> P-Papa</a><br>
+				<a><b>International Call Signals</b><br>The blue Peter.<br>In harbour: All persons should report on board as the vessel is about to proceed to sea.<br>At sea: It may be used by fishing vessels to mean: "My nets have come fast upon an obstruction."</a><br>
+				<a><b>Regatta Rules</b><br>Prepartory signal</a>
+			<a id="Q"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_Q.svg.png"> Q-Quebec</a><br>
+				<a><b>International Call Signals</b><br>Ship meets health regulations; request clearance into port</a>
+				<a><b>Navy</b><br>Boat recall; all boats return to ship</a>
+			<a id="R"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_R.svg.png"> R-Romeo</a><br>
+				<a><b>International Call Signals</b><br>Distance (range) in nautical miles</a>
+				<a><b>Navy</b><br>Preparing to replenish (At sea)<br>Ready duty ship (In port)</a>
+			<a id="S"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_S.svg.png"> S-Sierra</a><br>
+				<a><b>International Call Signals</b><br>I am moving astern</a><br>
+				<a><b>Regatta Rules</b><br>Shorten Course</a>
+				<a><b>Navy</b><br>Conducting flag hoist drill</a>
+			<a id="T"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_T.svg.png"> T-Tango</a><br>
+				<a><b>International Call Signals</b><br>Keep clear of me<br>Fishing boats: "Keep clear of me; I am engaged in pair trawling"</a>
+				<a><b>Navy</b><br>Do not pass ahead of me</a>
+			<a id="U"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_U.svg.png"> U-Uniform</a><br>
+				<a><b>International Call Signals</b><br>You are running into danger</a><br>
+				<a><b>Regatta Rules</b><br>The U Flag Rule will be in effect.</a>
+			<a id="V"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_V.svg.png"> V-Victor</a><br>
+				<a><b>International Call Signals</b><br>I require assistance</a>
+			<a id="W"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_W.svg.png"> W-Whiskey</a><br>
+				<a><b>International Call Signals</b><br>I require medical assistance</a>
+			<a id="X"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_X.svg.png"> X-X-Ray</a><br>
+				<a><b>International Call Signals</b><br>Stop carrying out your intentions and watch for my signals</a><br>
+				<a><b>Regatta Rules</b><br>Individual recall.</a>
+			<a id="Y"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_Y.svg.png"> Y-Yankee</a><br>
+				<a><b>International Call Signals</b><br>I am dragging my anchor</a><br>
+				<a><b>Regatta Rules</b><br>All people on board should wear a personal life jacket or personal buoyancy.<br>Indicates a protest if displayed by a competitor during match racing.</a>
+				<a><b>Navy</b><br>Ship has visual communications duty</a>
+			<a id="Z"><br><br><img src="Images/International maritime signal flags/Letter flags/ICS_Z.svg.png"> Z-Zulu</a><br>
+				<a><b>International Call Signals</b><br>I require a tug<br>By fishing vessels near fishing grounds: "I am shooting nets"</a><br>
+				<a><b>Regatta Rules</b><br>The 20% Penalty Rule 30.2 will be in effect.</a>
+			<a id="Answer"><br><br><img src="Images/International maritime signal flags/Substitutes/ICS_Answer.svg.png"> Answer/Code</a><br>
+				<a><b>International Call Signals</b><br>Message is understood. Also, numeric decimal point</a><br>
+				<a><b>Regatta Rules</b><br>Postponement</a>
+				<a><b>Navy</b><br>Flag that follows is from the International Code of Signals</a>
+			<a id="0"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_0.svg.png"> 0-Zero</a>
+			<a id="1"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_1.svg.png"> 1-One</a>
+			<a id="2"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_2.svg.png"> 2-Two</a>
+			<a id="3"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_3.svg.png"> 3-Three</a>
+			<a id="4"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_4.svg.png"> 4-Four</a>
+			<a><b>Regatta Rules</b><br>Postponement</a>
+			<a id="5"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_5.svg.png"> 5-Five</a>
+			<a id="6"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_6.svg.png"> 6-Six</a>
+			<a id="7"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_7.svg.png"> 7-Seven</a>
+			<a id="8"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_8.svg.png"> 8-Eight</a>
+			<a id="9"><br><br><img src="Images/International maritime signal flags/Number Pennant/ICS_Pennant_9.svg.png"> 9-Nine</a>
+			<a id="first"><br><br><img src="Images/International maritime signal flags/Substitutes/ICS_Repeat_1.svg.png"> First substitute</a>
+				<a><b>International Call Signals</b><br>Substitute for the first flag in this hoist or repeat flag</a><br>
+				<a><b>Regatta Rules</b><br>General recall</a>
+				<a><b>Navy</b><br>Absence of flag officer or unit commander</a>
+			<a id="second"><br><br><img src="Images/International maritime signal flags/Substitutes/ICS_Repeat_2.svg.png"> Second substitute</a>
+				<a><b>International Call Signals</b><br>Substitute for the second flag in this hoist</a><br>
+				<a><b>Navy</b><br>Absence of chief of staff (In port)</a>
+			<a id="third"><br><br><img src="Images/International maritime signal flags/Substitutes/ICS_Repeat_3.svg.png"> Third substitute</a>
+				<a><b>International Call Signals</b><br>Substitute for the third flag in this hoist</a><br>
+				<a><b>Navy</b><br>Absence of commanding officer (In port)</a>
+			<a id="fourth"><br><br><img src="Images/International maritime signal flags/Substitutes/ICS_Repeat_4.svg.png"> Fourth substitute</a>
+				<a><b>Navy</b><br>Absence of civil or military official whose flag is flying on this ship</a>
+		</div>
+	</div>
+	<script>
+		const load = () => {
+      	  	console.log("load event detected!");
+      	}
+		
+		window.onload = jumpToFlag();
+	</script>
+    <script src="lib/tau/wearable/js/tau.min.js"></script>
+	<script src="js/circle-helper.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/lowBatteryCheck.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/FlagFlashCards" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="G1ON2dxTFD.FlagFlashCards" package="G1ON2dxTFD" required_version="4.0"/>
+    <author href="www.paulclarke.com.au" email="paul.clarke87@gmail.com">Paul Clarke</author>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal"/>
+    <icon src="flags_logo.png"/>
+    <name>Nautical Flags</name>
+    <tizen:profile name="wearable"/>
+    <tizen:setting hwkey-event="enable"/>
+</widget>
